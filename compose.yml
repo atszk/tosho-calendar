@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build:
+      context: .
+    working_dir: /workspace/fire-dept-calendar/
+    volumes:
+      - ./:/workspace/:cached
+      - /workspace/fire-dept-calendar/node_modules/
+    ports:
+      - 5173:5173
+    command: npm run dev
+    environment:
+      - NODE_ENV=developmemt
