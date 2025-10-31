@@ -65,11 +65,15 @@ function App() {
         value={value}
         locale="ja-JP"
         calendarType="gregory"
-        tileContent={({ date }) => (
-          <small style={{ display: "block", marginTop: 4 }}>
-            {getDutyType(date)}
-          </small>
-        )}
+        tileContent={({ date, view }) => {
+          if (view === 'month') {
+            return (
+              <small style={{ display: "block", marginTop: 4 }}>
+                {getDutyType(date)}
+              </small>
+            )
+          }
+        }}
       />
     </div>
   );
