@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "./App.css";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -74,6 +75,9 @@ function App() {
             )
           }
         }}
+        tileClassName={({ date, view }) =>
+          view === 'month' && getDutyType(date) === '当番' ? 'on-duty' : undefined
+        }
       />
     </div>
   );

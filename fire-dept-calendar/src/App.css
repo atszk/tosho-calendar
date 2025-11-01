@@ -1,0 +1,10 @@
+/* 当番タイルを青に白字へ */
+.react-calendar__tile.on-duty {
+  background: #007bff;
+  color: #fff;
+}
+
+/* 当番タイルの小さい文字も白にする */
+.react-calendar__tile.on-duty small {
+  color: #fff;
+}
