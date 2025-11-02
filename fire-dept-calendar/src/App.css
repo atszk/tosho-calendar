@@ -4,7 +4,13 @@
   color: #fff;
 }
 
-/* 当番タイルの小さい文字も白にする */
-.react-calendar__tile.on-duty small {
-  color: #fff;
+/* duty-labelとholiday-labelは前後で改行する */
+.react-calendar__tile .duty-label,
+.react-calendar__tile .holiday-label {
+  display: block;
+}
+
+/* holiday-labelは赤字にする */
+.react-calendar__tile .holiday-label {
+  color: #d00;
 }

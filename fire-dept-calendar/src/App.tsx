@@ -1,5 +1,8 @@
 import { useState, useMemo } from "react";
 import Calendar from "react-calendar";
+import * as holiday_jp from '@holiday-jp/holiday_jp';
+import format from '@holiday-jp/holiday_jp/lib/format';
+
 import "react-calendar/dist/Calendar.css";
 import "./App.css";
 
@@ -34,7 +37,11 @@ function App() {
       Math.floor(
         (date.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
       ) % 21;
-    return CYCLE[(diffDays + 21) % 21];
+      return CYCLE[(diffDays + 21) % 21];
+  };
+
+  const getHolidayName = (date: Date) => {
+    return holiday_jp.holidays[format(date)]?.name;
   };
 
   return (
@@ -68,10 +75,15 @@ function App() {
         calendarType="gregory"
         tileContent={({ date, view }) => {
           if (view === 'month') {
+            const duty = getDutyType(date);
+            const holidayName = getHolidayName(date);
             return (
-              <small style={{ display: "block", marginTop: 4 }}>
-                {getDutyType(date)}
-              </small>
+              <div style={{ marginTop: 4 }}>
+                <small className="duty-label">{duty}</small>
+                {holidayName && (
+                  <small className="holiday-label">{holidayName}</small>
+                )}
+              </div>
             )
           }
         }}
