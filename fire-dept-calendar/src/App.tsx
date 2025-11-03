@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import Calendar from "react-calendar";
 import * as holiday_jp from '@holiday-jp/holiday_jp';
-import format from '@holiday-jp/holiday_jp/lib/format';
 
 import "react-calendar/dist/Calendar.css";
 import "./App.css";
@@ -41,7 +40,8 @@ function App() {
   };
 
   const getHolidayName = (date: Date) => {
-    return holiday_jp.holidays[format(date)]?.name;
+    const holidays = holiday_jp.between(date, date);
+    return holidays.length ? holidays[0].name : undefined;
   };
 
   return (
