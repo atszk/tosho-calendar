@@ -13,6 +13,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-calendar": "^6.0.0",
+    "vite-plugin-sitemap": "^0.8.2",
     "@holiday-jp/holiday_jp": "2.5.1"
   },
   "devDependencies": {
