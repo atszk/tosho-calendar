@@ -14,3 +14,14 @@
 .react-calendar__tile .holiday-label {
   color: #d00;
 }
+
+.react-calendar__tile--active {
+  background: inherit;
+  color: inherit;
+}
+
+.react-calendar__tile--now {
+  background: inherit;
+  color: inherit;
+  box-shadow: inset 0 0 0 5px #ffff76;
+}

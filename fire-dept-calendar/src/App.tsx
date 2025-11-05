@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: 420, margin: "40px auto", textAlign: "center" }}>
-      <h2>東京消防庁 勤務サイクルカレンダー</h2>
+      <h2>とうしょうカレンダー</h2>
 
       <div style={{ marginBottom: 16 }}>
         {(["1部", "2部", "3部"] as const).map((team) => (
@@ -73,6 +73,7 @@ function App() {
         value={value}
         locale="ja-JP"
         calendarType="gregory"
+        minDetail="decade"
         tileContent={({ date, view }) => {
           if (view === 'month') {
             const duty = getDutyType(date);
